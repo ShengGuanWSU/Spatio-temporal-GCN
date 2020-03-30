@@ -1,0 +1,25 @@
+\section{Preliminary}
+\label{sec-pre}
+
+%\vspace{-1ex}
+%We start with the notions of graphs.
+\subsection{Temporal Graph and Learning Tasks} 
+
+\stitle{Weighted Temporal Graph}. A weighted temporal graph 
+$\mathcal{G}_T$ is a  
+tuple $(V,E,W,L,T,F_A)$, where (1) $T$ is a time window (a sequence of consecutive timestamps); (2) $V$ is a set of nodes;
+(3) ${E \subseteq V \times V \times T}$ is a set of edges associated with a timestamp from $T$; (4) an adjacency matrix $W$ assigns a value to each edge ${e \in E}$. The lower value of weight indicates that the endpoints are closer to each other; (5) function $L$ assigns a label $L(v)$ (resp. $L(e)$) to each node $v \in V$ (resp. edge ${e \in E}$). An edge ${e = (u_1, u_2, t)(t \in T)}$ encodes a link with label $L(e)$ between $u_1$ and $u_2$ that exists at timestamp $t$; and (6) Each node $v\in V$ has a
+{\em node tuple} $F_A(v)$ =
+$\{(A_1, a_1), \ldots, (A_n,a_n)\}$
+defined on a set of node attributes $\A$,
+where a pair $(A_i, a_i)\in F_A(v)$
+states that the attribute $v.A_i\in\A$ has
+a value $a_i\in\adom(A_i)$. Here
+(a) $\A$ refers to a set of all the node
+attributes seen in $G$; and (b)
+$\adom(A_i)$ is a finite {\em active domain} of
+attribute $A_i$ in $G$, and contains
+all the values of $v.A_i$, where $v$ ranges
+over all the nodes in $V$.
+
+Given a timestamp ${t \in T}$, a snapshot $G_t$ of $\mathcal{G}_T$ at $t$ is a graph induced by the set of all the edges associated with timestamp $t$.

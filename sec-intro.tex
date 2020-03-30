@@ -1,0 +1,38 @@
+\stitle{Related Work.} We categorize the related work as follows.
+GeniePath: Graph Neural Networks with adaptive receptive paths \cite{liu2019geniepath}.
+KeyIdea:
+GeniePath, a scalable approach for learning adaptive receptive fields of neural networks defined on permutation invariant graph data. 
+Adaptive path layer consists of two complementary functions: 
+(1)	Breadth exploration—learns the importance of different sized neighborhoods
+(2)	Depth exploration –extracts and filters signals aggregated from neighbors of different hops away.
+Dataset:
+Pubmed (citation network, edges undirected citations)
+BlogCatalog  (social networks, nodes correspond to bloggers and edges to social relationships)
+one-hot features for each node 10,312 dimensional features-> decomposed by SVD on adjacency matrix A to get 128 dimensional features
+Alipay dataset:  nodes correspond to users’ accounts and devices during a time period
+		Node features: counts of login behaviors discretized into hours and account profiles
+2 classes of nodes (malicious accounts and normal accounts)
+82,246 disjoint subgraphs
+PPI dataset
+
+Compared methods:
+(1)	Multilayer perceptron: simple embedding, considers no structures of the graph
+(2)	Node2Vec (cannot work on multiple graphs: Alipay and PPI)
+(3)	Chebyshev, one graph spectral convolutions 
+(4)	GCN 
+(5)	GraphSAGE
+(6)	GAT
+
+Motivation for residual learning \cite{he2016deep}: 
+The degradation (of training accuracy) indicates that not all systems are similarly easy to optimize. Let us consider a shallower architecture and its deeper counterpart that adds more layers onto it. There exists a solution by construction to the deeper model: the added layers are identity mapping, and the other layers are copied from the learned shallower model. The existence of this constructed solution indicate that a deeper model should produce no higher training error than its shallower counterpart. But experiments show that our current solvers on hand are unable to find solutions that are comparably good or better than the constructed solution (or unable to do so in feasible time).
+Solution:
+Instead of hoping each few stacked layers directly fit a desired underlying mapping, we explicitly let these layers fit a residual mapping. Formally, denoting the desired underlying mapping as H(x), we let the stacked nonlinear layers fit another mapping of ${F(x) := H(x)- x}$. The original mapping is recast into ${F(x)+x}$. We hypothesize that it is easier to optimize the residual mapping than to optimize the original mapping.
+
+Topology Attack and Defense for Graph Neural Networks:An Optimization Perspective \cite{xu2019topology} proposed 
+
+When comparing to current adversarial attacks on GNNs, the results show that by only perturbing a small number of edge perturbations, including addition and deletion, our optimization-based attack can lead to a noticeable decrease in classification performance.
+
+
+
+
+
